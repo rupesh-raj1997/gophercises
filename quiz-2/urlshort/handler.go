@@ -18,7 +18,6 @@ type pathToUrl struct {
 // If the path is not provided in the map, then the fallback
 // http.Handler will be called instead.
 func MapHandler(pathsToUrls map[string]string, fallback http.Handler) http.HandlerFunc {
-	//	TODO: Implement this...
 	return http.HandlerFunc(func(w http.ResponseWriter, r *http.Request) {
 		if dest, ok := pathsToUrls[r.URL.Path]; ok {
 			http.Redirect(w, r, dest, http.StatusSeeOther)
